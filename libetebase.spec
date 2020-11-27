@@ -23,6 +23,7 @@ BuildRequires:	rust
 # vendored too
 #BuildRequires:	rust-cbindgen >= 0.14.2
 Requires:	libsodium >= 1.0.18
+ExclusiveArch:	%{x8664} %{ix86} x32 aarch64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
