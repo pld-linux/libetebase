@@ -68,9 +68,14 @@ EOF
 
 %build
 export CARGO_HOME="$(pwd)/.cargo"
+export PKG_CONFIG_ALLOW_CROSS=1
+export RUST_BACKTRACE=full
 export SODIUM_USE_PKG_CONFIG=1
 
-cargo -vv build --release --frozen
+cargo -vv build --release --frozen \
+%ifarch x32
+	--target x86_64-unknown-linux-gnux32
+%endif
 
 %{__make} pkgconfig
 
@@ -79,7 +84,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	DST_LIBRARY_DIR=$RPM_BUILD_ROOT%{_libdir}
+	DST_LIBRARY_DIR=$RPM_BUILD_ROOT%{_libdir} \
+%ifarch x32
+	MODE="x86_64-unknown-linux-gnux32/release"
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
