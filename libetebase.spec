@@ -2,7 +2,7 @@ Summary:	C library for Etebase
 Summary(pl.UTF-8):	Biblioteka C do Etebase
 Name:		libetebase
 Version:	0.5.4
-Release:	1
+Release:	2
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/etesync/libetebase/tags
@@ -25,6 +25,8 @@ BuildRequires:	rust
 Requires:	libsodium >= 1.0.18
 ExclusiveArch:	%{x8664} %{ix86} x32 aarch64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_debugsource_packages	0
 
 %description
 C library for Etebase.
