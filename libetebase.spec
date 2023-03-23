@@ -1,19 +1,19 @@
 Summary:	C library for Etebase
 Summary(pl.UTF-8):	Biblioteka C do Etebase
 Name:		libetebase
-Version:	0.4.1
+Version:	0.5.4
 Release:	1
 License:	BSD
 Group:		Libraries
-#Source0Download: https://github.com/etesync/libetebase/releases
+#Source0Download: https://github.com/etesync/libetebase/tags
 Source0:	https://github.com/etesync/libetebase/archive/v%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	2a1f865be5d7c36eaaf55cb35d4b962d
+# Source0-md5:	72adab5b63137fea914218e1247ad649
 # cd %{name}-%{version}
 # cargo vendor
 # cd ..
 # tar cJf %{name}-%{version}-vendor.tar.xz %{name}-%{version}/{vendor,Cargo.lock}
 Source1:	%{name}-%{version}-vendor.tar.xz
-# Source1-md5:	2f8316b44c488b18dd2bf1e4e43cfc21
+# Source1-md5:	977ba8e9e648de63a92d3768b78219aa
 URL:		https://www.etebase.com/
 BuildRequires:	cargo
 BuildRequires:	libsodium-devel >= 1.0.18
@@ -54,11 +54,6 @@ export CARGO_HOME="$(pwd)/.cargo"
 
 mkdir -p "$CARGO_HOME"
 cat >.cargo/config <<EOF
-[source."https://github.com/etesync/etebase-rs"]
-git = "https://github.com/etesync/etebase-rs"
-rev = "b3aad3e01fd602f3547e0af82d3bf1b5701b79a2"
-replace-with = "vendored-sources"
-
 [source.crates-io]
 replace-with = 'vendored-sources'
 
