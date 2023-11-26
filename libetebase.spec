@@ -2,7 +2,7 @@ Summary:	C library for Etebase
 Summary(pl.UTF-8):	Biblioteka C do Etebase
 Name:		libetebase
 Version:	0.5.4
-Release:	2
+Release:	3
 License:	BSD
 Group:		Libraries
 #Source0Download: https://github.com/etesync/libetebase/tags
